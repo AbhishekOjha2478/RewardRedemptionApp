@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: aurum-api
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /actuator/health/liveness
+    autoDeploy: true
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DB_HOST
+        value: gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_NAME
+        value: ces_rewards
+      - key: DB_USERNAME
+        value: AF5uFGy3gm4FNpR.root
+      - key: DB_PARAMS
+        value: sslMode=VERIFY_IDENTITY&serverTimezone=UTC
+      - key: JWT_ACCESS_MINUTES
+        value: "15"
+      - key: JWT_REFRESH_DAYS
+        value: "7"
+      - key: SEED_ADMIN_USERNAME
+        value: admin
+      - key: SEED_ADMIN_EMAIL
+        value: admin@cesportal.local
+      - key: SEED_ADMIN_FULL_NAME
+        value: Portal Administrator
+      - key: DEMO_SEED_ENABLED
+        value: "false"
+      - key: CORS_ORIGINS
+        value: http://localhost:5173
+      - key: DB_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false

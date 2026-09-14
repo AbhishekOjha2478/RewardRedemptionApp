@@ -26,3 +26,6 @@ application-local.yml
 # OS
 .DS_Store
 Thumbs.db
+
+# Deployment secrets, never committed
+deploy/
