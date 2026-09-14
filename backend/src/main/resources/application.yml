@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: reward-redemption
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:ces_rewards}?${DB_PARAMS:useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:ces_app}
+    password: ${DB_PASSWORD:ces_app_pw}
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 280000
+      idle-timeout: 120000
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${PORT:${SERVER_PORT:8080}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:ZGV2LW9ubHktc2VjcmV0LWNoYW5nZS1tZS1pbi1wcm9kdWN0aW9uLTEyMzQ1Ng==}
+    access-token-minutes: ${JWT_ACCESS_MINUTES:15}
+    refresh-token-days: ${JWT_REFRESH_DAYS:7}
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+  seed:
+    admin-username: ${SEED_ADMIN_USERNAME:admin}
+    admin-password: ${SEED_ADMIN_PASSWORD:Admin@123}
+    admin-email: ${SEED_ADMIN_EMAIL:admin@cesportal.local}
+    admin-full-name: ${SEED_ADMIN_FULL_NAME:Portal Administrator}
+  business:
+    transactions-per-request: 50
+    min-transaction-amount: 500
+    max-transaction-amount: 50000
+    premium-threshold-years: 3
+    regular-reward-rate: 0.05
+    premium-reward-rate: 0.10
+  demo-seed:
+    enabled: ${DEMO_SEED_ENABLED:false}
+
+logging:
+  level:
+    com.ces.rewards: INFO
