@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" width="260" height="64" role="img" aria-label="Aurum, CES Portal">
+  <defs>
+    <linearGradient id="wg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="64" y2="64">
+      <stop offset="0%" stop-color="#12756B"/>
+      <stop offset="100%" stop-color="#0B4F4A"/>
+    </linearGradient>
+    <linearGradient id="wd" gradientUnits="userSpaceOnUse" x1="16" y1="14" x2="48" y2="50">
+      <stop offset="0%" stop-color="#F7DC9A"/>
+      <stop offset="55%" stop-color="#E0A94A"/>
+      <stop offset="100%" stop-color="#BE861F"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#wg)"/>
+  <path d="M17 47 L32 16 L47 47" fill="none" stroke="url(#wd)" stroke-width="5.5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 38 L40 38" fill="none" stroke="url(#wd)" stroke-width="5" stroke-linecap="round"/>
+
+  <text x="80" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="27"
+        font-weight="600" letter-spacing="1.5" fill="#0B4F4A">AURUM</text>
+  <text x="81" y="49" font-family="Helvetica, Arial, sans-serif" font-size="10.5"
+        letter-spacing="3.1" fill="#6B7A78">CES PORTAL</text>
+</svg>
